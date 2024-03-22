@@ -1,0 +1,121 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you open the
+% 'Share' menu, you can invite other users to edit at the same
+% time. See www.overleaf.com/learn for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{ctexart}
+\usepackage[svgnames]{xcolor}
+\usepackage{amsmath}
+\newcommand{\cbox}[2][yellow]{%
+  \colorbox{#1}{\parbox{\dimexpr\linewidth-2\fboxsep}{\strut #2\strut}}%
+}
+
+
+
+\begin{document}
+\pagestyle{empty}
+\section{AMS510期末考试题}
+\begin{enumerate}
+
+    \item 
+        \[ \int_{-\infty}^{+\infty} e^{-2x^2+8x} \,dx \]
+    \cbox[gray!30]{\textsl{配方失误}}
+
+    配方的过程：\[-2x^{2}+8x\]第1步：提出$a$项的系数，为-2，于是原式变成了\[-2(x^{2}-4x)\]第2步：把$b$项的系数除以2再平方，然后把得到的数分为正数和负数放在后面，即:
+    \newline 把$b$项的系数除以2再平方：$-4/2=-2,-2^2=4$
+    \newline 然后把得到的数分为正数和负数放在后面，即为：\[-2(x^{2}-4x+4-4)\]
+    
+    第3步：把负的那一项系数乘以a的系数后，放在括号外面，即$-4*-2=8$，把8放在外面，变成：\[-2(x-4x+4)+8\]第4步：完成配方：\[-2(x-2)^2+8\]
+    
+    \item 
+     手推Taylor Expansion：\[y=\frac{1}{(1-x)^2}\]
+     \cbox[gray!30]{\textsl{老师自己改错了，但是我也侥幸套公式对了}}
+     问题:Solution 上，既然$\frac{1}{(1-x)}'=\frac{1}{(1-x)^2}$，并且我们也已经知道\[ \frac{1}{(1-x)}=\sum_{n=0}^{\infty} x^n\], 那么为什么我们不能直接对$\sum_{n=0}^{\infty} x^n$ 进行求导得出：\[ \frac{1}{(1-x)^2}= \sum_{n=0}^{\infty} nx^{n-1}\]
+
+    \item 
+    Find the Maximum of the function:\newline
+    $f(x,y,z)=xyz$\qquad subject to \qquad$4x+2y+z=6$ \newline
+    \cbox[gray!30]{\textsl{计算失误，无法解出联立方程组,我需要去寻找拉格朗日的复杂题、怪题。}}
+
+    \item
+    calculate the limits \[  \lim\limits_{(x,y)\rightarrow (0,0)}{\frac{sin(xy^{2})}{x^{2}y}} \]
+    \cbox[gray!30]{计算失误} 
+    \[  \lim\limits_{(x\rightarrow 1)}\frac{1-4sin^2{\frac{\pi x}{6}}}{1-x^2} \]
+    \cbox[gray!30]{求导失误} 
+
+    \item
+    三重积分题目，计算体积：
+    \[ V:{(x,y,z)\in R^3, x^2+y^2+4z^2 \leq 1} \]
+    1.注意判断，此时此刻用于区域的小于等于1，所以我们的R是在0～1区间内变化的，如果被积的区域是等于1，那么我们的R肯定是固定的，所以这里的r要注意，是动态变化的而不是固定的（会影响后面代入公式，如果认为r是固定的，则为代入1，那就错了）\newline
+    2. 根据体积的计算公式，进行极坐标变化
+    \newline 首先，三重积分中，如果要让你计算体积，那么f(x,y,z)=1，所以三重积分的体积几何意义表示为：
+    \[\iiint_V f(x,y,z) \,dx\,dy\,dz = \iiint_V \,dx\,dy\,dz  \] 
+    其中根据椭圆坐标变换分别代入$x$，$y$，$z$，极坐标公式变换为：
+    \[
+    \left\{
+    \begin{aligned}
+    x=arsin \theta cos\phi \\
+    y=brsin \theta cos\phi \\
+    z=crsin \theta cos\phi \\
+    J=r^2sin \theta
+    \end{aligned}
+    \right.
+    \]
+其中根据椭球体的公式可知：a=1,b=1,c=$\frac{1}{4}$\newline
+   
+\cbox[gray!30]{这道题完善一下过程}
+
+    \item 
+    计算矩阵
+    \[ A=
+    \begin{bmatrix}
+    3 & 2 & 4 \\
+    2 & 0 & 2 \\
+    4 & 2 & 3
+    \end{bmatrix}
+    \] 的eigenvalue and eigenvector,Diagonalization of A.($P^{-1}AP$)
+    这道题判断失误了，并且要记住，满秩矩阵有多少rank就应该要有多少的$\lambda$.这道题计算失误。
+    \cbox[gray!30]{\textsl{To-Do：规范一下对角化的过程}}
+    
+    \item 
+    证明不等式：\[
+    (\int_{a}^{b} |f(x)|dx)(\int_{a}^{b}\frac{1}{|f(x)|}dx) \leq (b-a)^2
+    \]
+    Cauchy–Schwarz inequality 一定要记住：
+    
+    
+\end{enumerate}
+
+\section{第二次课程}
+\begin{enumerate}
+    \item 二重极限的计算
+    \[  \lim\limits_{(x,y)\rightarrow (0,0)}{\frac{1+x^{2}+y^{2}}{x^{2}+y^{2}}} \]
+    \cbox[gray!30]{\textsl{不懂变形，苦苦计算y=mx的极限}}
+    首先，把原式拆成
+    \[1+\frac{1}{x^2+y^2}\]
+    然后我们再去观察，当$(x,y) \rightarrow(0,0)$ 时，$\frac{1}{x^2+y^2} \rightarrow \frac{1}{0} \rightarrow \infty$,故$1+\infty=\infty$. 
+    所以极限值就为$\infty$
+
+    \item  \[  \lim\limits_{(x,y)\rightarrow (0,0)}{(x+y) \cdot \sin{\frac{1}{x^{2}+y^{2}}}} \]
+     \cbox[gray!30]{\textsl{不知道使用放缩（虽然现在一看到三角函数的极限就想到放缩）}}
+
+    首先$\sin{\frac{1}{x^2+y^2}}\leq 1$,我们把整个式子结合起来就可以建立一个“三明治”：
+    \begin{equation}
+    \tag{1}
+    0\leq |(x+y)\sin{\frac{1}{x^2+y^2}} \leq |x+y|
+    \end{equation}
+    又因为$(x+y) \rightarrow (0,0)$,所以我们可以另外得到：
+    \[
+    0\leq |(x+y)\sin{\frac{1}{x^2+y^2}} \leq |x+y| \rightarrow 0
+    \]
+    所以极限为0. \\ 
+    为什么(1)中的公式里，右边是：$\leq |x+y|$，因为：sin 函数是一个有界量，它一定是小于等于1的，所以我们直接让sin函数取得最大值，接下来的唯一能够变的只剩下x+y了，所以右边就是$\leq |x+y|$，当然了，如果你可以一步到位，直接观察x+y为0，0乘以任何数都为0似乎也可以？
+    
+\end{enumerate}
+
+
+
+\end{document}
